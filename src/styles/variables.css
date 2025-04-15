@@ -1,0 +1,8 @@
+:root {
+  --primary: #1a2b47; /* Azul profundo */
+  --secondary: #1d6b5c; /* Verde esmeralda */
+  --light: #f2efe6; /* Bege suave */
+  --dark: #2c3038; /* Carvão */
+  --accent: #e6c19f; /* Cor de destaque */
+  --text: #e4e4e4; /* Text color for better contrast */
+}

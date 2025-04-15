@@ -1,0 +1,170 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+  }
+  
+  .modalContent {
+    background: #2a2e35;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: slideIn 0.3s ease-out forwards;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .closeButton {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 1.25rem;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+  }
+  
+  .closeButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .modalTitle {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--light);
+    position: relative;
+    display: inline-block;
+  }
+  
+  .modalTitle::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 60%;
+    background: var(--accent);
+    bottom: -8px;
+    left: 0;
+    border-radius: 2px;
+  }
+
+  .modalSubtitle {
+    font-size: 1.125rem;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+  
+  .contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .formInput,
+  .formTextarea {
+    background: rgba(20, 24, 28, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 0.75rem;
+    color: var(--text);
+    font-size: 1rem;
+    transition: border-color 0.2s;
+  }
+  
+  .formInput:focus,
+  .formTextarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  
+  .formTextarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .submitButton {
+    background: var(--secondary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.9rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    margin-top: 0.5rem;
+  }
+  
+  .submitButton:hover:not(:disabled) {
+    background: #257a69;
+    transform: translateY(-2px);
+  }
+  
+  .submitButton:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .successMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    color: var(--light);
+    padding: 2rem 0;
+  }
+  
+  .successMessage i {
+    font-size: 3rem;
+    color: var(--accent);
+  }
+  
+  @media (max-width: 480px) {
+    .modalContent {
+      padding: 1.5rem;
+    }
+    
+    .modalTitle {
+      font-size: 1.5rem;
+    }
+
+    modalSubtitle {
+      font-size: 1rem;
+    }
+  }

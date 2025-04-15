@@ -1,0 +1,95 @@
+.projectsSection {
+    margin-bottom: 2.5rem;
+  }
+  
+  .projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .project {
+    background: var(--primary);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .project:hover {
+    transform: translateY(-5px);
+  }
+  
+  .projectHeader {
+    height: 8px;
+    background: var(--accent);
+  }
+  
+  .projectContent {
+    padding: 1.5rem;
+  }
+  
+  .projectTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--light);
+  }
+  
+  .projectDescription {
+    color: var(--text);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .techTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .tag {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .tag img {
+    height: 22px;
+  }
+  
+  .portfolioLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--light);
+    font-weight: 600;
+    padding: 1rem;
+    background: var(--primary);
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.3s;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .portfolioLink:hover {
+    background: #243654;
+    transform: translateY(-3px);
+  }
+  
+  .portfolioIcon {
+    font-size: 1.25rem;
+  }
+  
+  @media (max-width: 992px) {
+    .projectsGrid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .projectsGrid {
+      grid-template-columns: 1fr;
+    }
+  }

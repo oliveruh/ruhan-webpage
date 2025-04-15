@@ -1,0 +1,33 @@
+.contactLinks {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contactLink {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--light);
+    padding: 0.75rem;
+    background: var(--primary);
+    border-radius: 8px;
+    transition: background 0.3s;
+  }
+  
+  .contactLink:hover {
+    background: #243654;
+  }
+  
+  .contactIcon {
+    font-size: 1.25rem;
+    color: var(--accent);
+  }
+  
+  @media (max-width: 768px) {
+    .contactLinks {
+      grid-template-columns: 1fr;
+    }
+  }

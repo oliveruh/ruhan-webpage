@@ -1,0 +1,35 @@
+.testimonial {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: var(--primary);
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+}
+
+.principle {
+  margin-bottom: 1.5rem;
+}
+
+.principle:last-child {
+  margin-bottom: 0;
+}
+
+.principleTitle {
+  color: var(--accent);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.principleIcon {
+  color: var(--accent);
+}
+
+.principleText {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
