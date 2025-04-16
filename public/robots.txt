@@ -1,0 +1,4 @@
+User-agent: *
+Crawl-delay: 5
+
+Sitemap: https://ruhan.veramonte.org/sitemap.xml
