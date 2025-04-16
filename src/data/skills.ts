@@ -1,4 +1,4 @@
-import { FaJava, FaLeaf, FaShieldAlt, FaDatabase, FaDocker, FaAws, FaJenkins, FaServer, FaStream, FaVuejs, FaVial, FaUserShield, FaCloud, FaCubes, FaReact } from 'react-icons/fa';
+import { FaJava, FaLeaf, FaShieldAlt, FaDatabase, FaDocker, FaAws, FaJenkins, FaServer, FaStream, FaVial, FaUserShield, FaCloud, FaCubes, FaReact } from 'react-icons/fa';
 import { Skill } from '../types/Skill';
 
 export const SKILLS: Skill[] = [
