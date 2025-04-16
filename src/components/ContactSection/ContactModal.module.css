@@ -168,3 +168,32 @@
       font-size: 1rem;
     }
   }
+
+  .recaptchaNotice {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 1rem;
+    line-height: 1.4;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  
+  .recaptchaNotice a {
+    color: #58c7b3;
+    text-decoration: none;
+    margin: 0 0.1rem;
+    transition: color 0.2s ease;
+  }
+  
+  .recaptchaNotice a:hover {
+    color: #6ad4c1;
+    text-decoration: underline;
+  }
+  
+  /* Add this media query for mobile */
+  @media (max-width: 480px) {
+    .recaptchaNotice {
+      font-size: 0.7rem;
+      padding: 0;
+    }
+  }

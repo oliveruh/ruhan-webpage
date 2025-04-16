@@ -12,7 +12,7 @@ const PrinciplesSection = ({ principles }: PrinciplesSectionProps) => {
         {principles.map((principle, index) => (
           <div key={index} className={styles.principle}>
             <h4 className={styles.principleTitle}>
-              <i className={`${principle.icon} ${styles.principleIcon}`}></i> 
+              <principle.icon className={styles.principleIcon} /> 
               {principle.title}
             </h4>
             <p className={styles.principleText}>{principle.text}</p>

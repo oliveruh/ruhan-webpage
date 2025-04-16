@@ -1,4 +1,6 @@
-import { useState, FormEvent } from 'react';
+import { useState, useRef, FormEvent } from 'react';
+import emailjs from '@emailjs/browser';
+import ReCAPTCHA from 'react-google-recaptcha';
 import styles from './ContactModal.module.css';
 
 interface ContactModalProps {
@@ -12,26 +14,62 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
   const [message, setMessage] = useState('');
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
+  const captchaRef = useRef<ReCAPTCHA>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  // Validate environment variables (consider using .env files)
+  const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+  const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
   if (!isOpen) return null;
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (isSending) return;
     setIsSending(true);
-    
-    // TODO: API endpoint to send the email
-    setTimeout(() => {
-      setIsSending(false);
+
+    try {
+      if (!captchaRef.current) {
+        throw new Error('reCAPTCHA not initialized');
+      }
+
+      // Execute reCAPTCHA
+      const token = await captchaRef.current.executeAsync();
+      if (!token) {
+        throw new Error('Failed reCAPTCHA challenge');
+      }
+
+      // Prepare template parameters
+      const templateParams = {
+        name,
+        email,
+        message
+      };
+
+      // Send email through EmailJS
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      // Reset form and state
       setIsSent(true);
-      
+      setName('');
+      setEmail('');
+      setMessage('');
+      formRef.current?.reset();
+
+      // Close modal after delay
       setTimeout(() => {
-        setName('');
-        setEmail('');
-        setMessage('');
         setIsSent(false);
         onClose();
       }, 2000);
-    }, 1500);
+    } catch (err) {
+      console.error('Submission error:', err);
+      alert(`Failed to send message: ${(err as Error).message}`);
+    } finally {
+      captchaRef.current?.reset();
+      setIsSending(false);
+    }
   };
 
   return (
@@ -40,17 +78,20 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
         <button className={styles.closeButton} onClick={onClose}>
           <i className="fas fa-times"></i>
         </button>
-        
+
         <h2 className={styles.modalTitle}>Get in Touch</h2>
-        <p className={styles.modalSubtitle}>I'd love to hear from you and discuss any project you have in mind. Send me a message!</p>
-        
+        <p className={styles.modalSubtitle}>
+          I'd love to hear from you and discuss any project you have in mind. Send me a message!
+        </p>
+
         {isSent ? (
           <div className={styles.successMessage}>
             <i className="fas fa-check-circle"></i>
             <p>Message sent successfully! I'll get back to you soon.</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className={styles.contactForm}>
+          <form onSubmit={handleSubmit} ref={formRef} className={styles.contactForm}>
+            {/* Form fields remain the same */}
             <div className={styles.formGroup}>
               <label htmlFor="name">Name</label>
               <input
@@ -63,7 +104,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                 className={styles.formInput}
               />
             </div>
-            
+
             <div className={styles.formGroup}>
               <label htmlFor="email">Email</label>
               <input
@@ -76,7 +117,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                 className={styles.formInput}
               />
             </div>
-            
+
             <div className={styles.formGroup}>
               <label htmlFor="message">Message</label>
               <textarea
@@ -88,9 +129,31 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                 className={styles.formTextarea}
               />
             </div>
-            
-            <button 
-              type="submit" 
+
+            <ReCAPTCHA
+              sitekey={recaptchaSiteKey}
+              ref={captchaRef}
+              size="invisible"
+              badge="inline"
+              hl="en" // Explicitly set language
+              onErrored={() => {
+                console.error('reCAPTCHA Error - check your network connection and site key');
+                captchaRef.current?.reset();
+              }}
+              onExpired={() => {
+                captchaRef.current?.reset();
+              }}
+              key={isOpen ? 'active' : 'inactive'} // Force re-initialization
+            />
+
+            <div className={styles.recaptchaNotice}>
+              This site is protected by reCAPTCHA and the Google
+              <a href="https://policies.google.com/privacy"> Privacy Policy</a> and
+              <a href="https://policies.google.com/terms"> Terms of Service</a> apply.
+            </div>
+
+            <button
+              type="submit"
               className={styles.submitButton}
               disabled={isSending}
             >

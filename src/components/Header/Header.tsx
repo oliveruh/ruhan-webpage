@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from './Header.module.css';
 import ContactModal from '../ContactSection/ContactModal';
+import selfie from '../../assets/img/me.jpeg';
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,7 +13,7 @@ const Header = () => {
     <>
       <header className={styles.profile}>
         <div className={styles.profileImage}>
-          <img src="https://avatars.githubusercontent.com/u/37072916?v=4" alt="Ruhan Monte" />
+          <img src={selfie} alt="Ruhan Monte" />
         </div>
         <div className={styles.profileInfo}>
           <h1 className={styles.name}>Ruhan Monte</h1>

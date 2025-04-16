@@ -1,4 +1,4 @@
-import { FaBriefcase, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 import { PROJECTS } from '../../data/projects';
 import ProjectCard from './ProjectCard';
 import styles from './ProjectsGrid.module.css';
@@ -12,11 +12,12 @@ const ProjectsGrid = () => {
           <ProjectCard key={index} project={project} />
         ))}
       </div>
-      
-      <a href="https://drive.google.com/file/d/1444Y33EhZ9iKQsv2ifMEGNOCr5RwCl_z/view?usp=sharing" className={styles.portfolioLink} target="_blank" rel="noopener noreferrer">
-        <FaBriefcase className={styles.portfolioIcon} />
-        Check out my complete CV
-        <FaExternalLinkAlt className={styles.portfolioIcon} />
+
+      <a href="/cv" className={styles.portfolioLink} target="_blank" rel="noopener noreferrer">
+        View CV (external link)
+        <span className={styles.iconSpacer}>
+          <FaExternalLinkAlt className={styles.portfolioIcon} />
+        </span>
       </a>
     </div>
   );
