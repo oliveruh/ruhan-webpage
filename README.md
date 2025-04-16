@@ -1,84 +1,39 @@
-# Ruhan Monte - Portfolio Website
+# Ruhan Monte - Code as Professional Identity 💻
 
-A modern, responsive portfolio website for Ruhan Monte, a Software Engineering Consultant.
+[![Live Deployment](https://img.shields.io/badge/LIVE-View%20Site-blue?logo=vercel&style=for-the-badge)](https://ruhan.veramonte.org)
 
-## Tech Stack
+![Portfolio Showcase](./public/img/thumbnail.png)
 
-- React
-- TypeScript
-- Vite
-- React Icons
-- CSS Modules
+## Origins of the Project 🌱
 
-## Project Structure
+This professional webpage began as a **three-fold mission**:
+1. **Professional Compass**: Create a dynamic showcase of my technical capabilities
+2. **Learning Laboratory**: Experiment with modern web development patterns
+3. **Teaching Platform**: Document architectural decisions for fellow developers
 
-The project follows a component-based architecture with CSS modules for styling:
+Born from late-night coding sessions and countless coffee cups, this project evolved from a simple resume page to a full-stacked professional identity system.
 
-```
-my-portfolio/
-├── public/
-│   ├── favicon.ico
-│   └── robots.txt
-├── src/
-│   ├── assets/
-│   │   └── images/
-│   │       └── profile.jpg
-│   ├── components/
-│   │   ├── Header/
-│   │   ├── SkillsGrid/
-│   │   ├── ProjectsGrid/
-│   │   ├── ExperienceTimeline/
-│   │   ├── ContactSection/
-│   │   └── PrinciplesSection/
-│   ├── data/
-│   │   ├── skills.ts
-│   │   ├── projects.ts
-│   │   ├── experience.ts
-│   │   └── principles.ts
-│   ├── styles/
-│   │   ├── global.css
-│   │   └── variables.css
-│   ├── App.tsx
-│   └── main.tsx
-└── ...
-```
+## Technical Philosophy in Practice 🛠️
 
-## Getting Started
+**Stack Choices:**  
+- React + TypeScript: Type-safe component architecture  
+- Vite: Lightning-fast build system  
+- CSS Modules: Scoped style management  
+- React Icons: Unified icon ecosystem  
 
-### Prerequisites
+**Key Architectural Decisions:**  
+- SEO-first SPA strategy  
+- Mobile-first responsive patterns  
+- CI/CD-powered performance budgets  
+- Content-decoupled component design  
 
-- Node.js (v16 or later)
-- npm or yarn
+## Living Documentation Purpose 📘  
 
-### Installation
+**Dual-Audience Approach:**  
+- For Clients: Professional competency proof  
+- For Developers: Open-source learning resource  
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   # or
-   yarn
-   ```
-3. Start the development server:
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
-4. Open your browser and visit: `http://localhost:5173`
-
-## Building for Production
-
-To build the app for production, run:
-
-```bash
-npm run build
-# or
-yarn build
-```
-
-The build output will be in the `dist` directory.
-
-## License
-
-MIT
+**Upcoming Educational Series:**  
+- Video breakdowns of key components  
+- Performance optimization case studies  
+- TypeScript pattern deep-dives  
