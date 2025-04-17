@@ -8,6 +8,7 @@ interface ContactModalProps {
   onClose: () => void;
 }
 
+// TODO: Modal close button is not accessible on mobile devices
 const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
