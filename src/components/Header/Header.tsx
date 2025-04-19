@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './Header.module.css';
-import ContactModal from '../ContactSection/ContactModal';
+import ContactModal from '../ContactModal/ContactModal';
 import selfie from '../../assets/img/me.jpeg';
 
 const Header = () => {
@@ -28,7 +28,7 @@ const Header = () => {
             <button onClick={openModal} className={styles.actionBtn}>
               Get in Touch
             </button>
-            <a href="https://calendly.com/herlisson-ruh/papo" className={styles.calendlyBtn} target="_blank" rel="noopener noreferrer">
+            <a href="https://calendar.app.google/99yey4sNeFUYR7ii8" className={styles.calendlyBtn} target="_blank" rel="noopener noreferrer">
               <i className="far fa-calendar-alt"></i> Schedule a Meeting
             </a>
           </div>
