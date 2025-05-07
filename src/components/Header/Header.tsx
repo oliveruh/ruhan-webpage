@@ -25,10 +25,10 @@ const Header = () => {
             building high-impact, business-driven tech.
           </p>
           <div className={styles.actionButtons}>
-            <button onClick={openModal} className={styles.actionBtn}>
+            <button onClick={openModal} className={styles.actionBtn} data-umami-event="click-open-contact-modal"> 
               Get in Touch
             </button>
-            <a href="https://calendar.app.google/99yey4sNeFUYR7ii8" className={styles.calendlyBtn} target="_blank" rel="noopener noreferrer">
+            <a href="https://calendar.app.google/99yey4sNeFUYR7ii8" className={styles.calendlyBtn} data-umami-event="click-schedule-meeting-header" target="_blank" rel="noopener noreferrer">
               <i className="far fa-calendar-alt"></i> Schedule a Meeting
             </a>
           </div>

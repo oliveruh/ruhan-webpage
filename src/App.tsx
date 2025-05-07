@@ -52,7 +52,7 @@ const App = () => {
           </div>
 
           <div className="footer">
-            <p>&copy; {new Date().getFullYear()} Ruhan Monte. Available for projects worldwide. <a href="https://calendar.app.google/99yey4sNeFUYR7ii8" style={{ color: 'var(--accent)' }} target="_blank" rel="noopener noreferrer">Schedule a meeting!</a></p>
+            <p>&copy; {new Date().getFullYear()} Ruhan Monte. Available for projects worldwide. <a href="https://calendar.app.google/99yey4sNeFUYR7ii8" style={{ color: 'var(--accent)' }} data-umami-event="click-schedule-meeting-footer" target="_blank" rel="noopener noreferrer">Schedule a meeting!</a></p>
           </div>
         </div>
       </div>

@@ -157,6 +157,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
               type="submit"
               className={styles.submitButton}
               disabled={isSending}
+              data-umami-event="click-send-contact-message"
             >
               {isSending ? 'Sending...' : 'Send Message'}
             </button>

@@ -13,7 +13,7 @@ const ProjectsGrid = () => {
         ))}
       </div>
 
-      <a href="/cv" className={styles.portfolioLink} target="_blank" rel="noopener noreferrer">
+      <a href="/cv" className={styles.portfolioLink} data-umami-event="click-cv" target="_blank" rel="noopener noreferrer">
         View CV (external link)
         <span className={styles.iconSpacer}>
           <FaExternalLinkAlt className={styles.portfolioIcon} />
