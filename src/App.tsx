@@ -8,6 +8,7 @@ import ContactSection from './components/ContactSection/ContactSection';
 import PrinciplesSection from './components/PrinciplesSection/PrinciplesSection';
 import { EXPERIENCES } from './data/experiences';
 import { PRINCIPLES } from './data/principles';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   useEffect(() => {
@@ -44,16 +45,14 @@ const App = () => {
             </div>
 
             <div className="contact-section">
-              <h3 className="section-title">Connect</h3>
               <ContactSection />
 
               <PrinciplesSection principles={PRINCIPLES} />
             </div>
           </div>
 
-          <div className="footer">
-            <p>&copy; {new Date().getFullYear()} Ruhan Monte. Available for projects worldwide. <a href="https://calendar.app.google/99yey4sNeFUYR7ii8" style={{ color: 'var(--accent)' }} data-umami-event="click-schedule-meeting-footer" target="_blank" rel="noopener noreferrer">Schedule a meeting!</a></p>
-          </div>
+          {/* Footer Section */}
+          <Footer />
         </div>
       </div>
     </>

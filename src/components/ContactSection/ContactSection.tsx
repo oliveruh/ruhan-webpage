@@ -25,21 +25,24 @@ const ContactSection = () => {
   ];
 
   return (
-    <div className={styles.contactLinks}>
-      {contactLinks.map((link, index) => (
-        <a 
-          key={index} 
-          href={link.href} 
-          className={styles.contactLink}
-          target={link.href.startsWith('http') ? "_blank" : undefined}
-          rel={link.href.startsWith('http') ? "noopener noreferrer" : undefined}
-        >
-          <span className={styles.contactIcon}>
-            <i className={link.icon}></i>
-          </span>
-          <span>{link.text}</span>
-        </a>
-      ))}
+    <div>
+      <h3 className="section-title">Connect</h3>
+      <div className={styles.contactLinks}>
+        {contactLinks.map((link, index) => (
+          <a 
+            key={index} 
+            href={link.href} 
+            className={styles.contactLink}
+            target={link.href.startsWith('http') ? "_blank" : undefined}
+            rel={link.href.startsWith('http') ? "noopener noreferrer" : undefined}
+          >
+            <span className={styles.contactIcon}>
+              <i className={link.icon}></i>
+            </span>
+            <span>{link.text}</span>
+          </a>
+        ))}
+      </div>
     </div>
   );
 };

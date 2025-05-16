@@ -2,6 +2,7 @@ import { useState, useRef, FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 import ReCAPTCHA from 'react-google-recaptcha';
 import styles from './ContactModal.module.css';
+import { CONTACT_DATA } from '../../data/contact_data';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -80,53 +81,52 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
           <i className="fas fa-times"></i>
         </button>
 
-        <h2 className={styles.modalTitle}>Get in Touch</h2>
+        <h2 className={styles.modalTitle}>{CONTACT_DATA.componentTitle}</h2>
         <p className={styles.modalSubtitle}>
-          I'd love to hear from you and discuss any project you have in mind. Send me a message!
+          {CONTACT_DATA.componentSubtitle}
         </p>
 
         {isSent ? (
           <div className={styles.successMessage}>
             <i className="fas fa-check-circle"></i>
-            <p>Message sent successfully! I'll get back to you soon.</p>
+            <p>{CONTACT_DATA.successMessage}</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} ref={formRef} className={styles.contactForm}>
-            {/* Form fields remain the same */}
             <div className={styles.formGroup}>
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name">{CONTACT_DATA.nameLabel}</label>
               <input
                 type="text"
                 id="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                placeholder="Your name"
+                placeholder={CONTACT_DATA.namePlaceholder}
                 className={styles.formInput}
               />
             </div>
 
             <div className={styles.formGroup}>
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">{CONTACT_DATA.emailLabel}</label>
               <input
                 type="email"
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                placeholder="your.email@example.com"
+                placeholder={CONTACT_DATA.emailPlaceholder}
                 className={styles.formInput}
               />
             </div>
 
             <div className={styles.formGroup}>
-              <label htmlFor="message">Message</label>
+              <label htmlFor="message">{CONTACT_DATA.messageLabel}</label>
               <textarea
                 id="message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 required
-                placeholder="What would you like to discuss?"
+                placeholder={CONTACT_DATA.messagePlaceholder}
                 className={styles.formTextarea}
               />
             </div>
@@ -136,7 +136,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
               ref={captchaRef}
               size="invisible"
               badge="inline"
-              hl="en" // Explicitly set language
+              hl={navigator.language}
               onErrored={() => {
                 console.error('reCAPTCHA Error - check your network connection and site key');
                 captchaRef.current?.reset();
@@ -159,7 +159,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
               disabled={isSending}
               data-umami-event="click-send-contact-message"
             >
-              {isSending ? 'Sending...' : 'Send Message'}
+              {isSending ? CONTACT_DATA.sendingMessage : CONTACT_DATA.sentMessage}
             </button>
           </form>
         )}
